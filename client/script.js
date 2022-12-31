@@ -103,6 +103,8 @@ const handleSubmit = async (e) => {
     const data = await response.json();
     const parsedData = data.bot.trim();
 
+    console.log({ parsedData });
+
     typeText(messageDiv, parsedData);
   } else {
     const err = await response.text();
@@ -116,6 +118,7 @@ const handleSubmit = async (e) => {
 form.addEventListener("submit", handleSubmit);
 form.addEventListener("keyup", (e) => {
   if (e.keyCode === 13) {
+    // console.log("Test: 01");
     handleSubmit(e);
   }
 });
